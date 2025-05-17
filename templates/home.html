@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Breast Cancer Prediction</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background: #f8f9fa;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				margin: 0;
+			}
+
+			.container {
+				background: white;
+				padding: 2rem 3rem;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				max-width: 400px;
+				width: 100%;
+			}
+
+			h2 {
+				text-align: center;
+				margin-bottom: 1.5rem;
+				color: #333;
+			}
+
+			label {
+				display: block;
+				margin: 0.5rem 0 0.2rem;
+				color: #555;
+			}
+
+			input[type="number"] {
+				width: 100%;
+				padding: 0.5rem;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				margin-bottom: 1rem;
+			}
+
+			button {
+				width: 100%;
+				padding: 0.7rem;
+				background-color: #007bff;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				font-size: 1rem;
+				cursor: pointer;
+				transition: background 0.3s ease;
+			}
+
+			button:hover {
+				background-color: #0056b3;
+			}
+
+			.output {
+				margin-top: 1.5rem;
+				padding: 1rem;
+				background-color: #f1f1f1;
+				border-radius: 8px;
+				border: 1px solid #ccc;
+				color: #333;
+			}
+
+			.output p {
+				margin: 0.5rem 0;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h2>Breast Cancer Prediction</h2>
+			<form action="/" method="POST">
+				<label for="query1">Radius Mean</label>
+				<input type="number" step="any" id="query1" name="query1" value="{{ query1 or '' }}" required />
+
+				<label for="query2">Texture Mean</label>
+				<input type="number" step="any" id="query2" name="query2" value="{{ query2 or '' }}" required />
+
+				<label for="query3">Perimeter Mean</label>
+				<input type="number" step="any" id="query3" name="query3" value="{{ query3 or '' }}" required />
+
+				<label for="query4">Smoothness Mean</label>
+				<input type="number" step="any" id="query4" name="query4" value="{{ query4 or '' }}" required />
+
+				<label for="query5">Compactness Mean</label>
+				<input type="number" step="any" id="query5" name="query5" value="{{ query5 or '' }}" required />
+
+				<button type="submit">Submit</button>
+			</form>
+
+			{% if output1 or output2 %}
+			<div class="output">
+				{% if output1 %}
+				<p>Output 1: {{ output1 }}</p>
+				{% endif %} {% if output2 %}
+				<p>Output 2: {{ output2 }}</p>
+				{% endif %}
+			</div>
+			{% endif %}
+		</div>
+	</body>
+</html>
