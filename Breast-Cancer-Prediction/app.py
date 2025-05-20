@@ -6,9 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-import math
 from flask import Flask, render_template, request
-import re
 
 # Initializ e Flask app
 app = Flask(__name__)
@@ -58,4 +56,4 @@ def cancerPrediction():
     return render_template('home.html', output1=output1, output2=output2, query1=request.form['query1'], query2=request.form['query2'], query3=request.form['query3'], query4=request.form['query4'], query5=request.form['query5'])
 
 
-app.run()
+app.run(debug=False, port=8000)
