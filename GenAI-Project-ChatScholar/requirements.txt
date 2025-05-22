@@ -1,0 +1,9 @@
+langchain-community
+langchain
+langchain-groq
+langchain-openai
+langchain-google-genai
+PyPDF2
+flask
+faiss-cpu
+tiktoken
